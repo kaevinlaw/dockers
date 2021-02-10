@@ -9,6 +9,7 @@ RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-
 python3 \
 python3-pip \
 python3-distutils \
+python3-setuptools \
 software-properties-common \
 gpg-agent \
 ninja-build \
@@ -43,4 +44,5 @@ RUN apt-get update && apt install -y --no-install-recommends cmake \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 RUN rm /tmp/kitware-archive-latest.asc
 
-RUN pip3 install polib
+RUN pip3 install polib virtualenv pipx conan
+ENV PATH=$PATH:/scpp/repos/SnomArm/dev-host/bin/makedevs
