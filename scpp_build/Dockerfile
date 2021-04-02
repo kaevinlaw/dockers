@@ -5,7 +5,7 @@ WORKDIR /scpp
 USER root
 
 # Install dependencies
-RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+RUN apt-get -y update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 python3 \
 python3-pip \
 python3-distutils \
@@ -35,7 +35,10 @@ libssl-dev \
 libudev-dev \
 recode \
 libsqlite3-dev \
-libfmt-dev
+# protobuf-compiler \ needs more updated version
+libfmt-dev \
+    && apt-get purge -y --auto-remove \
+    && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
 # Install pip and python packages
 COPY kitware-archive-latest.asc /tmp/kitware-archive-latest.asc
@@ -54,3 +57,4 @@ RUN pip3 install polib pipx conan SCons compdb
 #RUN pip3 install polib virtualenv pipx conan SCons compdb
 ENV PATH=$PATH:/scpp/repos/SnomArm/dev-host/bin
 ENV CONAN_USER_HOME=/scpp
+ENV CCACHE_DIR=/scpp/.ccache
