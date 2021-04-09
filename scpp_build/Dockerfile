@@ -19,6 +19,7 @@ gpg-agent \
 build-essential \
 ccache \
 git \
+gdb \
 mtd-utils \
 qemu-user-static \
 rsync \
