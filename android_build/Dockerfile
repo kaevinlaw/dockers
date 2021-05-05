@@ -41,3 +41,5 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$JAVA_HOME/bin:$PATH
 ENV CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 ENV _JAVA_OPTIONS="-Xmx4g"
+
+RUN adduser --disabled-password --gecos '' android_builder
