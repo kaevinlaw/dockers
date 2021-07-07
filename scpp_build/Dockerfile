@@ -12,14 +12,17 @@ python3-distutils \
 python3-setuptools \
 python3-venv \
 python3-wheel \
+python3-protobuf \
+python3-jinja2 \
 software-properties-common \
 gpg-agent \
 # For ninja 1.10.1
 #ninja-build \
 build-essential \
+cpio \
 ccache \
-git \
 gdb \
+git \
 mtd-utils \
 qemu-user-static \
 rsync \
@@ -56,6 +59,6 @@ RUN rm /tmp/kitware-archive-latest.asc
 
 RUN pip3 install polib pipx conan SCons compdb
 #RUN pip3 install polib virtualenv pipx conan SCons compdb
-ENV PATH=$PATH:/scpp/repos/SnomArm/dev-host/bin
+ENV PATH=$PATH:/scpp/repos/SnomARM/dev-host/bin
 ENV CONAN_USER_HOME=/scpp
 ENV CCACHE_DIR=/scpp/.ccache
