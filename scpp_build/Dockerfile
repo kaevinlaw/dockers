@@ -41,6 +41,7 @@ recode \
 libsqlite3-dev \
 # protobuf-compiler \ needs more updated version
 libfmt-dev \
+sudo \
     && apt-get purge -y --auto-remove \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
@@ -62,3 +63,7 @@ RUN pip3 install polib pipx conan SCons compdb
 ENV PATH=$PATH:/scpp/repos/SnomARM/dev-host/bin
 ENV CONAN_USER_HOME=/scpp
 ENV CCACHE_DIR=/scpp/.ccache
+
+RUN adduser --disabled-password --gecos '' scpp_builder
+RUN echo "scpp_builder ALL = NOPASSWD: /bin/tar, /bin/rm, /usr/sbin/chroot, /sbin/makedevs, /scpp/repos/SnomARM/dev-host/bin/makedevs" >> /etc/sudoers
+RUN sed -i 's|Defaults|#Defaults|g' /etc/sudoers
