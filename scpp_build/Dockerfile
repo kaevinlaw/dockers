@@ -42,6 +42,10 @@ libsqlite3-dev \
 # protobuf-compiler \ needs more updated version
 libfmt-dev \
 sudo \
+file \
+wget \
+bc \
+unzip \
     && apt-get purge -y --auto-remove \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
