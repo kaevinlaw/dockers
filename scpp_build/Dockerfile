@@ -18,6 +18,10 @@ software-properties-common \
 gpg-agent \
 # For ninja 1.10.1
 #ninja-build \
+autoconf \
+automake \
+libtool \
+libtool-bin \
 build-essential \
 cpio \
 ccache \
